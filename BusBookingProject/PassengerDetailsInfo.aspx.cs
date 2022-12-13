@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -213,7 +214,9 @@ namespace BusBookingProject
             string seatNo = Convert.ToString(Request.QueryString["SeatNo"]);
             string[] seatArray = seatNo.Split(',').Select(str => str.Trim()).ToArray();
             int count=(seatArray.Length)-(gdPassengerDetails.Rows.Count);
-            if(gdPassengerDetails.Rows.Count<seatArray.Length)
+
+
+            if (gdPassengerDetails.Rows.Count<seatArray.Length)
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please Add Passenger Details For'+'"+gdPassengerDetails.Rows.Count+"'+'More Passengers')", true);
             }
@@ -316,6 +319,19 @@ namespace BusBookingProject
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            if (Convert.ToString(txtCode.Text).Length > 4 || Convert.ToString(txtCode.Text).Length < 3)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Card CVV Details')", true);
+                return;
+            }
+
+            if (Convert.ToString(txtCardNo.Text).Length != 16)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Card Number Details')", true);
+                return;
+
+            }
+
             int resultcount = getBook();
             if (resultcount ==-1)
             {

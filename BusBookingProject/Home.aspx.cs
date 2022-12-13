@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusBookingProject.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -69,7 +70,7 @@ namespace BusBookingProject
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            Response.Redirect("BusBookingSearchDetails.aspx?Origin="+ddlOrigin.SelectedItem.Text+"&Destination="+ddlDestination.SelectedItem.Text+"&TravelDate="+txtDate.Text);
+            Response.Redirect("BusBookingSearchDetails.aspx?Origin="+ddlOrigin.SelectedItem.Text+"&Destination="+ddlDestination.SelectedItem.Text+"&TravelDate="+Date.NormalizeToString(txtDate.Text));
         }
     }
 }

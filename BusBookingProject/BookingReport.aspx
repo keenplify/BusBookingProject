@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container" style="margin-top:6%">
                    <asp:GridView ID="gdTicketReport" runat="server" EmptyDataText="No Record Found...." AutoGenerateColumns="False" AllowPaging="true" PageSize="20" CssClass=""
-                    Width="100%" Font-Size="12" OnRowCommand="gdTicketReport_RowCommand">
+                    Width="100%" Font-Size="12" OnRowCommand="gdTicketReport_RowCommand" style="background: white">
                     <Columns>
                         <asp:TemplateField HeaderText="Sr.No">
                             <ItemTemplate>
@@ -23,14 +23,14 @@
                     </Columns>
                 </asp:GridView>
 
-              <div id="ticket" runat="server" visible="false">
+              <div id="ticket" runat="server" visible="false ">
                 <h1 style="font-weight: bold">Online Bus Booking</h1>
                 <br />
                 <br />
 
                 <h2 style="font-weight: bold">PNR Details</h2>
-                <div class="table-bordered">
-                    <table class="table-striped" id="tbtPNR" runat="server" style="width: 100%; color: green; font-size: large">
+                    <div style="width: 100%">
+                    <table class="table-striped table-bordered" id="tbtPNR" runat="server" style="width: 100%; color: green; font-size: large">
                         <tr>
                             <td style="font-weight: bold">PNR No</td>
                             <td>
@@ -50,6 +50,12 @@
                             <td style="font-weight: bold">Bus Name</td>
                             <td>
                                 <asp:Label ID="lblBusName" runat="server"></asp:Label></td>
+                        </tr>
+                            <tr>
+                            <td style="font-weight: bold">Date/Time of Booking</td>
+                            <td>
+                                <asp:Label ID="lblBookingTime" runat="server"></asp:Label>
+                            </td>
                         </tr>
                     </table>
                 </div>
@@ -75,6 +81,13 @@
                 </asp:GridView>
                 <br />
                 <br />
+                
+                <div style="text-align: center">
+                    <p>
+                        This Booking's QR Code:
+                    </p>
+                    <asp:Image ID="imgQRCode" runat="server" style="width:300px; height:300px"/>
+                </div>
                 <p style="text-align: center; font-style: italic; font-size: 10pt">
                     Thank you for booking Ticket with us,have a pleasant journey!!!!
                 </p>

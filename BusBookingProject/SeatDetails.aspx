@@ -212,7 +212,6 @@
                         return false;
                     }
                     else {
-                        debugger;
                         var newseatDetails = '<%= Session["SeatNo"] %>'
                        if (newseatDetails.value != '' || newseatDetails.value != null) {
                            var splitSetails = newseatDetails.split(",");

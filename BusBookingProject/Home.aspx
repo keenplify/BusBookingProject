@@ -154,7 +154,8 @@
                           <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <asp:Label ID="lblDate" runat="server" Text="Travel Date" Font-Bold="true"></asp:Label>
-                                    <asp:TextBox ID="txtDate" runat="server" placeholder="DD/MM/YYYY Format" class="form-control input-sm floatlabel"></asp:TextBox>
+                                    <%--<asp:TextBox ID="txtDate" runat="server" placeholder="DD/MM/YYYY Format" class="form-control input-sm floatlabel"></asp:TextBox>--%>
+                                    <asp:TextBox ID="txtDate" type="date" runat="server" class="form-control input-sm floatlabel"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">

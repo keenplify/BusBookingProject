@@ -1,10 +1,13 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
+using QRCoder;
 using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -97,37 +100,51 @@ namespace BusBookingProject
             sda.Fill(dsGetData);
             gdPaxDetails.DataSource = dsGetData.Tables[0];
             gdPaxDetails.DataBind();
-            lblTransactionNo.Text = Convert.ToString(dsGetData.Tables[1].Rows[0]["PNRNo"]);
+            var pnrNo = Convert.ToString(dsGetData.Tables[1].Rows[0]["PNRNo"]);
+            lblTransactionNo.Text = pnrNo;
             lblBusName.Text = Convert.ToString(dsGetData.Tables[1].Rows[0]["BusName"]);
             //lblDepartureTime.Text = Convert.ToString(dsGetData.Tables[1].Rows[0]["DeptTime"]);
             lblTotalAmount.Text = Convert.ToString(dsGetData.Tables[1].Rows[0]["Amount"]);
             lblTotalTickets.Text = Convert.ToString(dsGetData.Tables[1].Rows[0]["TotalTickets"]);
-                        using (StringWriter sw = new StringWriter())
-                        {
-                            using (HtmlTextWriter hw = new HtmlTextWriter(sw))
-                            {
-                                StringBuilder sb = new StringBuilder();
-                                //generate header
-                                //export html string as a pdf
-                                ticket.RenderControl(hw);
-                                //tbtPNR.RenderControl(hw);
-                                // gdPaxDetails.RenderControl(hw);
-                                StringReader sr = new StringReader(sw.ToString());
-                                Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0);
-                                PdfWriter writer = PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
-                                pdfDoc.Open();
-                                pdfDoc.NewPage();
-                                XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
-                                pdfDoc.Close();
-                                Response.ContentType = "application/pdf";
-                                Response.AddHeader("content-disposition", "attachement;filename=Ticket" + ".pdf");
-                                Response.Cache.SetCacheability(HttpCacheability.NoCache);
-                                Response.Write(pdfDoc);
-                                Response.End();
-                            }
-                        }
+            lblBookingTime.Text = Convert.ToString(dsGetData.Tables[1].Rows[0]["CreatedAt"]);
 
-                    }
+            QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(pnrNo, QRCodeGenerator.ECCLevel.Q);
+            QRCode qrCode = new QRCode(qrCodeData);
+            Bitmap qrCodeImage = qrCode.GetGraphic(20);
+            var targetFolder = HttpContext.Current.Server.MapPath("~/temp/");
+            var targetPath = Path.Combine(targetFolder, pnrNo + ".jpeg");
+
+            qrCodeImage.Save(targetPath, System.Drawing.Imaging.ImageFormat.Jpeg);
+            
+            imgQRCode.ImageUrl = targetPath;
+
+            using (StringWriter sw = new StringWriter())
+            {
+                using (HtmlTextWriter hw = new HtmlTextWriter(sw))
+                {
+                    StringBuilder sb = new StringBuilder();
+                    //generate header
+                    //export html string as a pdf
+                    ticket.RenderControl(hw);
+                    //tbtPNR.RenderControl(hw);
+                    // gdPaxDetails.RenderControl(hw);
+                    StringReader sr = new StringReader(sw.ToString());
+                    Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0);
+                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+                    pdfDoc.Open();
+                    pdfDoc.NewPage();
+                    XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                    pdfDoc.Close();
+                    Response.ContentType = "application/pdf";
+                    Response.AddHeader("content-disposition", "attachement;filename=Ticket" + ".pdf");
+                    Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                    Response.Write(pdfDoc);
+                    Response.End();
+                }
+            }
+
+        }
         
 
         protected void gdTicketReport_RowCommand(object sender, GridViewCommandEventArgs e)

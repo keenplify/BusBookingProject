@@ -1,10 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BusBookingMaster.Master" AutoEventWireup="true" CodeBehind="PassengerDetailsInfo.aspx.cs" Inherits="BusBookingProject.PassengerDetailsInfo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.4.3/imask.min.js" integrity="sha512-yJ3vm1HmQtcgeMtbUYCp7PuTLyjU+ffCnVNTuE1Uccv1BmkoaJIXt1EjBVGnscjCILc62hTJJJ2rJJBTcw8RjQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            IMask(document.getElementById('ContentPlaceHolder1_txtCode'), { mask: '0000' });
+            IMask(document.getElementById('ContentPlaceHolder1_txtCardNo'), { mask: '0000000000000000' });
+        }, false);
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container" style="margin-top: 8%">
-        <asp:GridView ID="gdPassengerDetails" runat="server" ShowFooter="true" AutoGenerateColumns="false" Width="100%">
+        <asp:GridView ID="gdPassengerDetails" runat="server" ShowFooter="true" AutoGenerateColumns="false" Width="100%" style="background-color: white">
             <Columns>
                 <asp:BoundField DataField="RowNumber" HeaderText="Row Number" />
                 <asp:TemplateField HeaderText="First Name">
@@ -80,10 +87,10 @@
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6">
                         <div class="form-group">
-                            <asp:Label ID="lblLastName" runat="server" Text="3 Digit CVV Code" Font-Bold="true"></asp:Label>
+                            <asp:Label ID="lblLastName" runat="server" Text="3 Digit CVV Code" Font-Bold="true" for="txtCode"></asp:Label>
                             <asp:TextBox ID="txtCode" runat="server" class="form-control input-sm floatlabel" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="txtCode" Display="None" ID="rfVLastName" ValidationGroup="vgRegister"
-                                CssClass="text-danger" ErrorMessage="CVV COde is required." /><br />
+                                CssClass="text-danger" ErrorMessage="CVV Code is required." /><br />
                         </div>
 
                         <div class="form-group">
@@ -95,7 +102,7 @@
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6">
                         <div class="form-group">
-                            <asp:Button ID="btnSave" runat="server" Text="Make Payment" OnClick="btnSave_Click" class="btn btn-info " ValidationGroup="vgRegister" CausesValidation="True" ViewStateMode="Inherit" />
+                            <asp:Button ID="btnSave" runat="server" Text="Make Payment" OnClick="btnSave_Click" class="btn btn-info" ValidationGroup="vgRegister" CausesValidation="True" ViewStateMode="Inherit" />
                         </div>
                     </div>
                 </div>

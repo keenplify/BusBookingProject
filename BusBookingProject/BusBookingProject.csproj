@@ -48,6 +48,11 @@
       <HintPath>..\..\PayouFinalCopy12March\PayouWithDMR&amp;BusBooking\PayouWebapp\bin\itextsharp.xmlworker.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.4.3.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.4.3\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -63,6 +68,7 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
@@ -102,7 +108,10 @@
     <Content Include="Admin\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Admin\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Admin\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\BusBooking.pubxml" />
+    <Content Include="Terminal\Default.aspx" />
+    <Content Include="Terminal\Terminal.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -253,6 +262,7 @@
     <Compile Include="EditProfile.aspx.designer.cs">
       <DependentUpon>EditProfile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="helpers\date.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -282,6 +292,20 @@
     <Compile Include="SeatDetails.aspx.designer.cs">
       <DependentUpon>SeatDetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Terminal\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Terminal\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Terminal\Terminal.Master.cs">
+      <DependentUpon>Terminal.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Terminal\Terminal.Master.designer.cs">
+      <DependentUpon>Terminal.Master</DependentUpon>
+    </Compile>
     <Compile Include="UserRegistration.aspx.cs">
       <DependentUpon>UserRegistration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -292,7 +316,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admin\images\" />
+    <Folder Include="App_Data\" />
     <Folder Include="images\" />
+    <Folder Include="temp\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

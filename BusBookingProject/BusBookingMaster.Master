@@ -46,11 +46,11 @@
                         <%}else{ %>
                         <li>
                            Hii!!! <asp:Label ID="lblName" runat="server" Font-Bold="true"></asp:Label>
-                           <asp:Button ID="btnLogout" runat="server" CssClass="alert-success" Text="Logout" OnClick="btnLogout_Click" />
-                        </li>
-                        
-                        <li>
-                            <a href="/EditProfile.aspx" class="alert-success">Edit Profile</a>
+                            <div style="display: flex; gap: 1em; padding: .25em 0">
+                                <asp:Button ID="btnLogout" runat="server" CssClass="alert-success btn" Text="Logout" OnClick="btnLogout_Click" />
+                                <a href="/EditProfile.aspx" class="alert-success btn">Edit Profile</a>
+                            </div>
+                           
                         </li>
                         <%} %>
                     </ul>

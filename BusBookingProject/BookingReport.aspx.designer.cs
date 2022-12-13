@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BusBookingProject {
-    
-    
-    public partial class BookingReport {
-        
+namespace BusBookingProject
+{
+
+
+    public partial class BookingReport
+    {
+
         /// <summary>
         /// gdTicketReport control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace BusBookingProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gdTicketReport;
-        
+
         /// <summary>
         /// ticket control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace BusBookingProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ticket;
-        
+
         /// <summary>
         /// tbtPNR control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace BusBookingProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTable tbtPNR;
-        
+
         /// <summary>
         /// lblTransactionNo control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace BusBookingProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTransactionNo;
-        
+
         /// <summary>
         /// lblTotalTickets control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace BusBookingProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTotalTickets;
-        
+
         /// <summary>
         /// lblTotalAmount control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace BusBookingProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTotalAmount;
-        
+
         /// <summary>
         /// lblBusName control.
         /// </summary>
@@ -74,7 +76,16 @@ namespace BusBookingProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblBusName;
-        
+
+        /// <summary>
+        /// lblBookingTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBookingTime;
+
         /// <summary>
         /// gdPaxDetails control.
         /// </summary>
@@ -83,5 +94,14 @@ namespace BusBookingProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gdPaxDetails;
+
+        /// <summary>
+        /// imgQRCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgQRCode;
     }
 }
