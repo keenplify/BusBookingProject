@@ -19,13 +19,13 @@ namespace BusBookingProject.Admin
         {
             if(!IsPostBack)
             {
-                if(Session["UserName"] !=null)
+                if(Session["AdminUserName"] !=null)
                 {
                     bindBusDetailsReport();
                 }
                 else
                 {
-                    Response.Redirect("AdminLogin.aspx");
+                    Response.Redirect("/Admin/AdminLogin.aspx");
                 }
             }
         }

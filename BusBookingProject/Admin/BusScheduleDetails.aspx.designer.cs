@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BusBookingProject.Admin {
-    
-    
-    public partial class BusScheduleDetails {
-        
+namespace BusBookingProject.Admin
+{
+
+
+    public partial class BusScheduleDetails
+    {
+
         /// <summary>
         /// vsRegister control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace BusBookingProject.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ValidationSummary vsRegister;
-        
+
         /// <summary>
         /// divMessage control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace BusBookingProject.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMessage;
-        
+
         /// <summary>
         /// lblFirstName control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace BusBookingProject.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFirstName;
-        
+
         /// <summary>
         /// txtDate control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace BusBookingProject.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDate;
-        
+
         /// <summary>
         /// rfvFirstName control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace BusBookingProject.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFirstName;
-        
+
         /// <summary>
         /// lblUserName control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace BusBookingProject.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblUserName;
-        
+
         /// <summary>
         /// txtFare control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace BusBookingProject.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFare;
-        
+
         /// <summary>
         /// rfVMobileNo control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace BusBookingProject.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfVMobileNo;
-        
+
         /// <summary>
         /// lblLastName control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace BusBookingProject.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLastName;
-        
+
         /// <summary>
         /// txtTravelTime control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace BusBookingProject.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTravelTime;
-        
+
         /// <summary>
         /// rfVLastName control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace BusBookingProject.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfVLastName;
-        
+
         /// <summary>
         /// lblPassword control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace BusBookingProject.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPassword;
-        
+
         /// <summary>
         /// txtArrival control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace BusBookingProject.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtArrival;
-        
+
         /// <summary>
         /// rfvPassword control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace BusBookingProject.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPassword;
-        
+
         /// <summary>
         /// lblEmail control.
         /// </summary>
@@ -146,7 +148,7 @@ namespace BusBookingProject.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEmail;
-        
+
         /// <summary>
         /// txtDeparture control.
         /// </summary>
@@ -155,7 +157,7 @@ namespace BusBookingProject.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDeparture;
-        
+
         /// <summary>
         /// rfVEmail control.
         /// </summary>
@@ -164,7 +166,7 @@ namespace BusBookingProject.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfVEmail;
-        
+
         /// <summary>
         /// btnSaveSchedule control.
         /// </summary>

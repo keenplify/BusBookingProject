@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusBookingProject.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -19,13 +20,13 @@ namespace BusBookingProject.Admin
         {
             if(!IsPostBack)
             {
-                if(Session["UserName"] !=null)
+                if(Session["AdminUserName"] !=null)
                 {
 
                 }
                 else
                 {
-                    Response.Redirect("AdminLogin.aspx");
+                    Response.Redirect("/Admin/AdminLogin.aspx");
                 }
             }
         }
@@ -41,7 +42,7 @@ namespace BusBookingProject.Admin
             sqlCmd.CommandType = CommandType.StoredProcedure;
             sqlCmd.Parameters.AddWithValue("@RouteID", Convert.ToInt32(Request.QueryString["RouteID"]));
             sqlCmd.Parameters.AddWithValue("@PlaceName", Convert.ToString(txtPlace.Text));
-            sqlCmd.Parameters.AddWithValue("@PlaceTime", Convert.ToString(txtArrival.Text));
+            sqlCmd.Parameters.AddWithValue("@PlaceTime", Time.NormalizeTo12Hour(txtArrival.Text));
             sqlCmd.Parameters.AddWithValue("@BusID", Convert.ToInt32(Request.QueryString["BusID"]));
             sqlCmd.CommandText = "addBordingDetails";
             sqlCmd.Connection = connString;

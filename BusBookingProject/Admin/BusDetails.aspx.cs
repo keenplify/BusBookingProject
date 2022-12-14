@@ -19,7 +19,7 @@ namespace BusBookingProject.Admin
         {
             if(!IsPostBack)
             {
-                if(Session["UserName"]!=null)
+                if(Session["AdminUserName"] !=null)
                 {
                     if(Request.QueryString["BusID"]!=null)
                     {
@@ -34,7 +34,7 @@ namespace BusBookingProject.Admin
                 }
                 else
                 {
-                    Response.Redirect("AdminLogin.aspx");
+                    Response.Redirect("/Admin/AdminLogin.aspx");
                 }
             }
         }

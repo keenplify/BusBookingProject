@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -54,6 +55,11 @@ namespace BusBookingProject
         }
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            if (!chkTOS.Checked)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('You need to accept out terms and conditions to create an account.')", true);
+                return;
+            }
             int RegistrationStatuis = 0;
             RegistrationStatuis = Regitration();
             if(RegistrationStatuis>0)

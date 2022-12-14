@@ -70,6 +70,14 @@
                                     CssClass="text-danger" ErrorMessage="Pin code is required." /><br />
                         </div>
                     </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12" style="min-height: 5em">
+                        <div class="form-group">
+                            <div style="display: flex; justify-content:center; align-items: center; gap:.25em; color: black; font-size: 1.1rem">
+                                <asp:CheckBox runat="server" ID="chkTOS" style="display: flex" />
+                                I Agree to this website's <button type="button" class="btn btn-link btn-sm" style="padding: 0" data-toggle="modal" data-target="#flipFlop">Terms and Conditions</button>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-xs-6 col-sm-6 col-md-6">
                         <div class="form-group">
                             <asp:Button ID="btnSave" runat="server" Text="Register" OnClick="btnSave_Click" class="btn btn-info " ValidationGroup="vgRegister"  CausesValidation="True" ViewStateMode="Inherit" />
@@ -80,6 +88,25 @@
                             <a href="Login.aspx" class="btn btn-info btn-block">Login</a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- The modal -->
+    <div class="modal fade" id="flipFlop" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+             <div class="modal-content">
+                 <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="modalLabel">Terms and Conditions</h4>
+                </div>
+                <div class="modal-body">
+                    Modal content...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

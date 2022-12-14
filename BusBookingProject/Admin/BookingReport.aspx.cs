@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -17,17 +18,20 @@ namespace BusBookingProject.Admin
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["UserName"] !=null)
+            if(Session["AdminUserName"] !=null)
             {
-                bingBookingReport();
+                if (!IsPostBack)
+                {
+                    bingBookingReport();
+                }
             }
             else
             {
-                Response.Redirect("Login.aspx");
+                Response.Redirect("/Admin/AdminLogin.aspx");
             }
         }
 
-        private void  bingBookingReport()
+        private void  bingBookingReport(string keyword = "")
         {
             DataSet dsGetData = new DataSet();
             SqlCommand sqlCmd = new SqlCommand();
@@ -37,6 +41,7 @@ namespace BusBookingProject.Admin
             }
             sqlCmd.CommandType = CommandType.StoredProcedure;
             sqlCmd.CommandText = "ispGetBookingReportByAdmin";
+            sqlCmd.Parameters.AddWithValue("@Keyword", keyword);
             sqlCmd.Connection = connString;
             SqlDataAdapter sda = new SqlDataAdapter(sqlCmd);
             sda.Fill(dsGetData);
@@ -52,6 +57,28 @@ namespace BusBookingProject.Admin
                gdTicketReport.DataBind();
            }
         
+        }
+
+        protected void submitSearchBtn_Click(object sender, EventArgs e)
+        {
+            bingBookingReport(txtKeyword.Text);
+        }
+
+        protected void gdTicketReport_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            var gv = sender as GridView;
+            var id = gv.Rows[e.RowIndex].Cells[0].Text as string;
+
+            SqlCommand sqlCmd = new SqlCommand();
+            if (connString.State == ConnectionState.Closed)
+            {
+                connString.Open();
+            }
+            sqlCmd.CommandText = $"DELETE FROM BookingMaster WHERE BookingId='{id}'";
+            sqlCmd.Connection = connString;
+            sqlCmd.ExecuteNonQuery();
+
+            bingBookingReport();
         }
     }
 }

@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <div class="container" style="margin-top: 8%">
          <asp:GridView ID="gdRouteDetails" runat="server" EmptyDataText="No Record Found...." AutoGenerateColumns="False" AllowPaging="true" PageSize="20" CssClass="table table-hover table-bordered"
-                    Width="100%" Font-Size="12" OnRowDataBound="gdRouteDetails_RowDataBound">
+                    Width="100%" Font-Size="12" OnRowDataBound="gdRouteDetails_RowDataBound" style="background: white">
                     <Columns>
                         <asp:TemplateField HeaderText="Sr.No">
                             <ItemTemplate>

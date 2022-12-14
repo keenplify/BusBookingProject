@@ -22,7 +22,7 @@
                         </div>
                        <div class="form-group">
                             <asp:Label ID="lblUserName" runat="server" Text="Boarding Place Expected Time Of Arrival" Font-Bold="true"></asp:Label>
-                            <asp:TextBox ID="txtArrival" runat="server" placeholder="00:00 AM/PM" class="form-control input-sm floatlabel" />
+                            <asp:TextBox ID="txtArrival" runat="server" type="time" placeholder="00:00 AM/PM" class="form-control input-sm floatlabel" />
                              <asp:RequiredFieldValidator runat="server" ControlToValidate="txtArrival" Display="None" ID="rfVMobileNo" ValidationGroup="vgRegister"
                                     CssClass="text-danger" ErrorMessage="Expected Arrival Time is required." /><br />
                         </div>

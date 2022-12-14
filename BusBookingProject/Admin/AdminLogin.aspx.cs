@@ -18,7 +18,7 @@ namespace BusBookingProject.Admin
         {
             if(txtUserId.Text=="admin" && txtPassword.Text=="admin")
             {
-                Session["UserName"] = "Admin";
+                Session["AdminUserName"] = "Admin";
                 Response.Redirect("BusDetailsReport.aspx");
             }
             else

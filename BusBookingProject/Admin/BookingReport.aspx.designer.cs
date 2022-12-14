@@ -7,11 +7,40 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BusBookingProject.Admin {
-    
-    
-    public partial class BookingReport {
-        
+namespace BusBookingProject.Admin
+{
+
+
+    public partial class BookingReport
+    {
+
+        /// <summary>
+        /// SearchPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel SearchPanel;
+
+        /// <summary>
+        /// txtKeyword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtKeyword;
+
+        /// <summary>
+        /// submitSearchBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button submitSearchBtn;
+
         /// <summary>
         /// gdTicketReport control.
         /// </summary>

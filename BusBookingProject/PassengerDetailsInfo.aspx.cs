@@ -304,10 +304,14 @@ namespace BusBookingProject
             {
                 connString.Open();
             }
+
+            var cardType = Convert.ToString(ddlCardType.SelectedItem.Value);
+            var bankName = Convert.ToString(ddlBank.SelectedItem.Value);
+
             sqlCmd.CommandType = CommandType.StoredProcedure;
             sqlCmd.Parameters.AddWithValue("@UserID",Convert.ToInt32(Session["UserID"]));
-            sqlCmd.Parameters.AddWithValue("@CardType", Convert.ToString(ddlCardType.SelectedItem.Text));
-            sqlCmd.Parameters.AddWithValue("@BankName", Convert.ToString(ddlBank.SelectedItem.Text));
+            sqlCmd.Parameters.AddWithValue("@CardType", cardType);
+            sqlCmd.Parameters.AddWithValue("@BankName", bankName);
             sqlCmd.Parameters.AddWithValue("@CVVNo", Convert.ToString(txtCode.Text));
             sqlCmd.Parameters.AddWithValue("@CardNo", Convert.ToString(txtCardNo.Text));
             sqlCmd.Parameters.AddWithValue("@TotalAmount", Convert.ToDecimal(amount));
@@ -319,6 +323,15 @@ namespace BusBookingProject
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            var cardType = Convert.ToString(ddlCardType.SelectedItem.Value);
+            var bankName = Convert.ToString(ddlBank.SelectedItem.Value);
+
+            if (cardType == "Debit Card" && String.IsNullOrEmpty(bankName))
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Bank details is required when card type is debit.')", true);
+                return;
+            }
+
             if (Convert.ToString(txtCode.Text).Length > 4 || Convert.ToString(txtCode.Text).Length < 3)
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Invalid Card CVV Details')", true);

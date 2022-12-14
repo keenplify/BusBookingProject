@@ -27,7 +27,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="Default.aspx" style="font-weight: bold"><i class="glyphicon glyphicon-home"></i></a></li>
-                        <% if(Session["UserName"]!=null){ %>
+                        <% if(Session["AdminUserName"]!=null){ %>
                         <li><a runat="server" href="Default.aspx" id="lnkDashboard" visible="false" style="font-weight: bold">Dashboard</a></li>
                         <li><a runat="server" href="BusDetails.aspx" id="lnkComplaint" style="font-weight: bold">Add Bus</a></li>
                         <li><a runat="server" href="RouteDetails.aspx" id="A2" style="font-weight: bold">Route Details</a></li>
@@ -37,14 +37,14 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <% if(Session["UserName"]==null){ %>
+                        <% if(Session["AdminUserName"]==null){ %>
                         <li><a runat="server" href="../Default.aspx" style="font-weight: bold" title="Login">Home</a></li>
                         <li><a runat="server" href="AdminLogin.aspx" id="linkLogin" style="font-weight: bold" title="Login">AdminLogin</a></li>
                         <%}else{ %>
                         <li><a runat="server" href="../Default.aspx" style="font-weight: bold" title="Login">Home</a></li>
-                        <li><a runat="server" href="#" title="Manage your account" id="lnkWelcome" style="font-weight: bold">Hello, <%: Session["UserName"]  %>!</a></li>
+                        <li><a runat="server" href="#" title="Manage your account" id="lnkWelcome" style="font-weight: bold">Hello, <%: Session["AdminUserName"]  %>!</a></li>
                         <li>
-                            <a runat="server" href="../Default.aspx" id="A1" style="font-weight: bold">Logout</a></li>
+                            <asp:Button runat="server" ID="LogoutBtn" OnClick="LogoutBtn_Click" Text="Logout"  style="font-weight: bold; color: #777; padding: 15px 0" CssClass="btn-ghost btn"/>
                         </li>
                         <%} %>
                     </ul>

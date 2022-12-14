@@ -64,9 +64,9 @@
                         <div class="form-group">
                             <asp:Label ID="lblCardType" runat="server" Text="Select Your Card" Font-Bold="true"></asp:Label>
                             <asp:DropDownList ID="ddlCardType" runat="server" class="form-control input-sm floatlabel">
-                                <asp:ListItem Value="0" Text="--Select Card--"></asp:ListItem>
-                                <asp:ListItem Value="1" Text="Credit Card"></asp:ListItem>
-                                <asp:ListItem Value="2" Text="Debit Card"></asp:ListItem>
+                                <asp:ListItem Value="" Text="--Select Card--"></asp:ListItem>
+                                <asp:ListItem Text="Credit Card"></asp:ListItem>
+                                <asp:ListItem Text="Debit Card"></asp:ListItem>
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="ddlCardType" Display="None" ID="rfvFirstName" ValidationGroup="vgRegister"
                                 CssClass="text-danger" ErrorMessage="Card Type is required." /><br />
@@ -74,15 +74,15 @@
                         <div class="form-group">
                             <asp:Label ID="lblBankName" runat="server" Text="Select Bank" Font-Bold="true"></asp:Label>
                             <asp:DropDownList ID="ddlBank" runat="server" class="form-control input-sm floatlabel">
-                                <asp:ListItem Value="0" Text="--Select Bank--"></asp:ListItem>
-                                <asp:ListItem Value="1" Text="BDO"></asp:ListItem>
-                                <asp:ListItem Value="2" Text="BPI"></asp:ListItem>
-                                <asp:ListItem Value="3" Text="Land Bank"></asp:ListItem>
-                                <asp:ListItem Value="4" Text="MetroBank"></asp:ListItem>
-                                <asp:ListItem Value="5" Text="PNB"></asp:ListItem>
+                                <asp:ListItem Value="" Text="--Select Bank--"></asp:ListItem>
+                                <asp:ListItem Text="BDO"></asp:ListItem>
+                                <asp:ListItem Text="BPI"></asp:ListItem>
+                                <asp:ListItem Text="Land Bank"></asp:ListItem>
+                                <asp:ListItem Text="MetroBank"></asp:ListItem>
+                                <asp:ListItem Text="PNB"></asp:ListItem>
                             </asp:DropDownList>
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="ddlBank" Display="None" ID="rfVMobileNo" ValidationGroup="vgRegister"
-                                CssClass="text-danger" ErrorMessage="Bank Name is required." /><br />
+<%--                            <asp:RequiredFieldValidator runat="server" ControlToValidate="ddlBank" Display="None" ID="rfVMobileNo" ValidationGroup="vgRegister"
+                                CssClass="text-danger" ErrorMessage="Bank Name is required." /><br />--%>
                         </div>
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6">
@@ -104,6 +104,9 @@
                         <div class="form-group">
                             <asp:Button ID="btnSave" runat="server" Text="Make Payment" OnClick="btnSave_Click" class="btn btn-info" ValidationGroup="vgRegister" CausesValidation="True" ViewStateMode="Inherit" />
                         </div>
+                    </div>
+                     <div class="col-xs-6 col-sm-6 col-md-6">
+                        <a href="Home.aspx" class="btn btn-danger" style="width: 100%">Cancel</a>
                     </div>
                 </div>
             </div>

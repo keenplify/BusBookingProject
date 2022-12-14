@@ -24,7 +24,7 @@
                 </asp:GridView>
 
               <div id="ticket" runat="server" visible="false ">
-                <h1 style="font-weight: bold">Online Bus Booking</h1>
+                <h1 style="font-weight: bold">Novaliches Public Terminal</h1>
                 <br />
                 <br />
 

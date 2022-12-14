@@ -20,13 +20,13 @@ namespace BusBookingProject.Admin
         {
             if(!IsPostBack)
             {
-                if(Session["UserName"] !=null)
+                if(Session["AdminUserName"] !=null)
                 {
                     bindBoardingDetails();
                 }
                 else
                 {
-                    Response.Write("AdminLogin.aspx");
+                    Response.Write("/Admin/AdminLogin.aspx");
                 }
             }
         }
